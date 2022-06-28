@@ -41,22 +41,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Configure AWS Creditentials
-        uses: aws-actions/configure-aws-credentials@v1
+      - name: Pulling Docker Image To VM
+        uses: actions/checkout@v2
         with:
-          #host: ip-172-31-36-219.ap-south-1.compute.internal
-          aws-access-key-id: AKIA3MX5DVVFM2PNJW5Z
-          aws-secret-access-key: 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
-          aws-region: ap-south-1
-          #port: ${{ secrets.PORT }}
-          script: |
-            chmod 400 notesapi.ppk
-            ssh -i "notesapi.ppk" ubuntu@ec2-3-110-197-38.ap-south-1.compute.amazonaws.com "docker stop nestmongo;
-            docker rm nestmongo;
-            docker pull manitrak/nestmongo:latest
-            docker run -d -p nestmongo
-            echo "deployment success"
-  
-        
+          run: |
+            chmod +x ./public/scripts/test.sh
+             ./public/scripts/test.sh
+          shell: bash
 
         
