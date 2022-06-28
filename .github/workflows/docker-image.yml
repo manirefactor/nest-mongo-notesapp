@@ -11,13 +11,12 @@ jobs:
     #needs: build
     runs-on: ubuntu-latest
     steps:
-    - name: Check Out Repo 
-      uses: actions/checkout@v2
     - name: Pulling Docker Image To VM
-      #uses: actions/checkout@v2
-      run: |
-          chmod +x ./test.sh 
-          ./test.sh 
-      shell : bash
-
-        
+      uses: appleboy/ssh-action@master
+      with:
+        host: ec2-3-110-197-38.ap-south-1.compute.amazonaws.com
+        username: ubuntu
+        key: ${{ secrets.KEY_ED25519 }}
+        port: 22
+        script: sh test.sh
+  
