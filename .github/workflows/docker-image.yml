@@ -14,9 +14,9 @@ jobs:
     - name: Pulling Docker Image To VM
       uses: appleboy/ssh-action@master
       with:
-        host: ec2-3-110-197-38.ap-south-1.compute.amazonaws.com
+        host: 3.110.197.38
         username: ubuntu
         key: ${{ secrets.KEY_ED25519 }}
         port: 22
-        script: sh test.sh
+        script: sh ./test.sh
   
