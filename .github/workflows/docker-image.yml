@@ -18,7 +18,7 @@ jobs:
           #host: ip-172-31-36-219.ap-south-1.compute.internal
           aws-access-key-id: AKIA3MX5DVVFM2PNJW5Z
           aws-secret-access-key: 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
-          aws-region: ${{ env.AWS_REGION }}
+          aws-region: ap-south-1
           #port: ${{ secrets.PORT }}
           script: |
             sample string
