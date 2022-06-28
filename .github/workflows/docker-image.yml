@@ -44,8 +44,8 @@ jobs:
     - name: Pulling Docker Image To VM
       #uses: actions/checkout@v2
       run: |
-            chmod +x test.sh
-             test.sh
+            chmod +x  ./nest-mongo-notesapp/test.sh 
+             ./nest-mongo-notesapp/test.sh 
       shell : bash
 
         
