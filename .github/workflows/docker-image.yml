@@ -42,8 +42,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Pull Docker Image
-        #uses: manitrak/nest-mongo-notesapp@main
+      - name: Configure AWS Creditentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           host: ip-172-31-36-219.ap-south-1.compute.internal
           username: maniam
