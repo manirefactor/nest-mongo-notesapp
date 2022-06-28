@@ -43,7 +43,7 @@ jobs:
     steps:
 
       - name: Pull Docker Image
-        uses: manitrak/nest-mongo-notesapp@main
+        #uses: manitrak/nest-mongo-notesapp@main
         with:
           host: ip-172-31-36-219.ap-south-1.compute.internal
           username: maniam
