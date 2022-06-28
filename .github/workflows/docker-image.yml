@@ -11,12 +11,10 @@ jobs:
     #needs: build
     runs-on: ubuntu-latest
     steps:
-    - name: Pulling Docker Image To VM
-      uses: appleboy/ssh-action@master
-      with:
-        host: 3.110.197.38
-        username: ubuntu
-        key: ${{ secrets.KEY_ED25519 }}
-        port: 22
-        script: sh ./test.sh
+    - uses: actions/checkout@v2
+    - name: Run script file
+      run: |
+         chmod +x ./test.sh
+         ./test.sh
+      shell: bash
   
