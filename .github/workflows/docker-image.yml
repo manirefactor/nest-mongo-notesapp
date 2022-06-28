@@ -16,7 +16,8 @@ jobs:
       with:
         host: ec2-3-110-197-38.ap-south-1.compute.amazonaws.com
         username: ubuntu
-        key: ${{ secrets.KEY_ED25519 }}
+        key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCrPZS362SIH7vtjLoHOCNbwL1wNByudqVvt7LMdmcsXx2VSKU9kpxjsHcEZlNXp6HJvt889wCuPMxJKNBJe3NlqemwKsA+mjBoPnzLquu++HAQdpLPwhhfbge6VR5ZnBMe1/HIDpkNnzUhWnqb26U+czmD1BHjxHZhDYSQMCUqx4CwkkY03n+ySlpqMhBd+puXXYuWHwitnnjfKHIkSMA28bvUeIZw/YVDLoKy9wN91LX5lYCDW+hWGLUDrXeoSoISP1ucT24WihomFXPT/zaRuDF63XfCBVkIR1tkS/BWA9/qobmSF87RuZX0opjgkRgOUxVsGKMz5L4KkKXlsMV5ASusf9kRluxdD9FR8cJPw4Yl/JOoxGPxtdmeemLoYiGED6eNHBKCaJgBTr+/z9xmU3Gdo6YB7qHRFX3sXjvL0ZZYAvC9P6QuUquM6musGJE1jwe1vhSzj8wdYSys8mJv75I+uZq2GgpJQ+lE6Dc2tKmhp7yPP5eexY3KgwVrapc= Manikanta@Manikanta
+
         port: 22
         script: sh test.sh
   
