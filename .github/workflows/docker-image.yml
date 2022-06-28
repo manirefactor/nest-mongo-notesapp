@@ -6,9 +6,7 @@ on:
   pull_request:
     branches: [ "main" ]
 
-jobs:
- 
-        
+jobs:     
   Deploy:
     #needs: build
     runs-on: ubuntu-latest
@@ -18,8 +16,8 @@ jobs:
     - name: Pulling Docker Image To VM
       #uses: actions/checkout@v2
       run: |
-          chmod +x  test.sh 
-          test.sh 
+          chmod +x ./test.sh 
+          ./test.sh 
       shell : bash
 
         
