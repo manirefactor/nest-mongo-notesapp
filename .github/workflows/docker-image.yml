@@ -38,15 +38,14 @@ jobs:
         run: echo ${{ steps.docker_build.outputs.digest }}
         
   Deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
-
-      - name: Pulling Docker Image To VM
-        uses: actions/checkout@v2
-        with:
-          run: |
+    - name: Pulling Docker Image To VM
+      #uses: actions/checkout@v2
+      run: |
             chmod +x ./test.sh
              ./test.sh
-          shell: bash
+      shell : bash
 
         
