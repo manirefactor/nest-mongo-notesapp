@@ -7,10 +7,10 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: executing remote ssh commands
+      - name: Executing remote ssh commands
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.NEWDEV_HOST }}
@@ -19,3 +19,10 @@ jobs:
           port: ${{ secrets.NEWDEV_SSH_PORT }}
           script: |
             ls -al
+            sudo docker login -u manitrak -p Mani@9430
+            sudo docker ps -q
+            sudo docker stop one
+            sudo docker rm one
+            sudo docker rmi $(sudo docker images -q)
+            sudo docker pull manitrak/nestmongo:latest
+            sudo docker run -d --name one manitrak/nestmongo
