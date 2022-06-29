@@ -6,17 +6,16 @@ on:
   pull_request:
     branches: [ "main" ]
 
-jobs:     
-  Deploy:
-    #needs: build
+jobs:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - name: Pulling Docker Image To VM
-      uses: appleboy/ssh-action@master
-      with:
-        host: 3.110.197.38
-        username: ubuntu
-        key: ${{ secrets.KEY_ED25519 }}
-        port: 22
-        script: sh ./test.sh
-  
+      - name: executing remote ssh commands
+        uses: appleboy/ssh-action@master
+        with:
+          script_stop: true
+          host: ${{ secrets.NEWDEV_HOST }}
+          username: ${{ secrets.NEWDEV_USERNAME }}
+          key: ${{ secrets.NEWDEV_SSH_KEY }}
+          port: ${{ secrets.NEWDEV_SSH_PORT }}
+          script: whoami
