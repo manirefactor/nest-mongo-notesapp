@@ -11,9 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: executing remote ssh commands
-        uses: appleboy/ssh-action@v0.1.4
+        uses: appleboy/ssh-action@master
         with:
-          script_stop: true
           host: ${{ secrets.NEWDEV_HOST }}
           username: ${{ secrets.NEWDEV_USERNAME }}
           key: ${{ secrets.NEWDEV_SSH_KEY }}
