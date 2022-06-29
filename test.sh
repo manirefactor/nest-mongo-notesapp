@@ -1,3 +1,3 @@
-chmod 400 notesapi.ppk
-ssh -t -t -i "notesapi.ppk" ubuntu@ec2-3-110-197-38.ap-south-1.compute.amazonaws.com;
+chmod 400 mykey.pem
+ssh -t -t -i "mykey.pem" ec2-user@ec2-3-111-23-153.ap-south-1.compute.amazonaws.com;
 mkdir mani_test
