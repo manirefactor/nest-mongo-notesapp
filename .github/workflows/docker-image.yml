@@ -18,4 +18,4 @@ jobs:
           username: ${{ secrets.NEWDEV_USERNAME }}
           key: ${{ secrets.NEWDEV_SSH_KEY }}
           port: ${{ secrets.NEWDEV_SSH_PORT }}
-          script: whoami
+          script: whoami?
