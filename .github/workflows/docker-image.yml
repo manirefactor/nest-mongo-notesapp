@@ -39,7 +39,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Executing remote ssh commands
+      - name: Executing remote ssh command
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.NEWDEV_HOST }}
