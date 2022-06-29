@@ -6,7 +6,7 @@ import { NoteSchema } from './note.models';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb+srv://<yourusername>:<password>@cluster0.sqrev.mongodb.net/?retryWrites=true&w=majority'),
+    MongooseModule.forRoot('mongodb+srv://manitrak:2exSUi7XnpSIVzAr@cluster0.sqrev.mongodb.net/?retryWrites=true&w=majority'),
     MongooseModule.forFeature([{name:'note',schema:NoteSchema}])
   ],
   controllers: [AppController],
