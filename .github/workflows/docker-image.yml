@@ -3,12 +3,9 @@ name: Docker Image CI
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: [windows-latest]
     steps:
 
       - name: Check Out Repo 
@@ -35,21 +32,20 @@ jobs:
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Executing remote ssh command
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.NEWDEV_HOST }}
-          username: ${{ secrets.NEWDEV_USERNAME }}
-          key: ${{ secrets.NEWDEV_SSH_KEY }}
-          port: ${{ secrets.NEWDEV_SSH_PORT }}
-          script: |
-            sudo docker login -u manitrak -p Mani@9430
-            sudo docker ps -q
-            sudo docker stop one
-            sudo docker rm one
-            sudo docker rmi $(sudo docker images -q)
-            sudo docker run -d --name one manitrak/nestmongo
+  deploying:
+      needs: build
+      runs-on: windows-latest
+      steps:
+        - name: Connecting to windows and Deploying Image.
+          uses: appleboy/ssh-action@master
+          with:
+            host: 116.75.110.243
+            username: manikanta\manikanta
+            password: 9430 
+            port: 22
+            script: |
+              docker login -u manitrak -p Mani@9430
+              docker stop user
+              docker rm user
+              docker pull manitrak/nestmongo:latest
+              docker run --network="host" --name nest -d  manitrak/nestmongo:latest
