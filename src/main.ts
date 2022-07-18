@@ -8,7 +8,7 @@ async function bootstrap() {
   .setTitle('NestMongoApp')
   .setDescription('Rest Api Built with NestJs and MongoDb Atlas')
   .setVersion('2.O')
-  .addTag('NestApi')
+  .addTag('NestApi!')
   .build();
 
   const options : SwaggerDocumentOptions = {
