@@ -11,8 +11,8 @@ jobs:
         - name: Connecting to windows and Deploying Image.
           uses: appleboy/ssh-action@master
           with:
-            host: 116.75.110.243
-            username: manikanta\manikanta
+            host: 192.168.71.128
+            username: mani
             password: 9430 
             port: 22
             script: |
