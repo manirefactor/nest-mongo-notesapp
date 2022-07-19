@@ -16,8 +16,4 @@ jobs:
             password: 9430 
             port: 22
             script: |
-              docker login -u manitrak -p Mani@9430
-              docker stop user
-              docker rm user
-              docker pull manitrak/nestmongo:latest
-              docker run --network="host" --name nest -d  manitrak/nestmongo:latest
+              mkdir manitest
